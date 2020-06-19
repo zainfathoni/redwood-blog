@@ -1,6 +1,7 @@
 import BlogLayout from 'src/layouts/BlogLayout'
 import {
   Form,
+  FormError,
   Label,
   TextField,
   TextAreaField,
@@ -21,7 +22,7 @@ const CREATE_CONTACT = gql`
 const ContactPage = () => {
   const formMethods = useForm()
 
-  const [create, { loading }] = useMutation(CREATE_CONTACT, {
+  const [create, { loading, error }] = useMutation(CREATE_CONTACT, {
     onCompleted: () => {
       formMethods.reset()
       alert('Thank you for your message!')
@@ -39,7 +40,12 @@ const ContactPage = () => {
         onSubmit={onSubmit}
         validation={{ mode: 'onBlur' }}
         formMethods={formMethods}
+        error={error}
       >
+        <FormError
+          error={error}
+          wrapperStyle={{ color: 'red', backgroundColor: 'lavenderBlush' }}
+        />
         <Label errorClassName="error" name="name">
           Your Name
         </Label>
@@ -56,7 +62,7 @@ const ContactPage = () => {
         <TextField
           name="email"
           errorClassName="error"
-          validation={{ required: true, pattern: { value: /[^@]+@[^.]+\..+/ } }}
+          validation={{ required: true }}
         />
         <FieldError className="error" name="email" />
 
