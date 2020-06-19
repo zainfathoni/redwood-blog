@@ -40,7 +40,9 @@ const ContactPage = () => {
         validation={{ mode: 'onBlur' }}
         formMethods={formMethods}
       >
-        <Label errorClassName="error" name="name" />
+        <Label errorClassName="error" name="name">
+          Your Name
+        </Label>
         <TextField
           name="name"
           errorClassName="error"
@@ -48,7 +50,9 @@ const ContactPage = () => {
         />
         <FieldError className="error" name="name" />
 
-        <Label errorClassName="error" name="email" />
+        <Label errorClassName="error" name="email">
+          Your Email
+        </Label>
         <TextField
           name="email"
           errorClassName="error"
@@ -56,7 +60,9 @@ const ContactPage = () => {
         />
         <FieldError className="error" name="email" />
 
-        <Label errorClassName="error" name="message" />
+        <Label errorClassName="error" name="message">
+          Your Message
+        </Label>
         <TextAreaField
           name="message"
           errorClassName="error"
