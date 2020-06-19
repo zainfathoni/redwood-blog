@@ -62,7 +62,7 @@ const ContactPage = () => {
         <TextField
           name="email"
           errorClassName="error"
-          validation={{ required: true }}
+          validation={{ required: true, pattern: { value: /[^@]+@[^.]+\..+/ } }}
         />
         <FieldError className="error" name="email" />
 
