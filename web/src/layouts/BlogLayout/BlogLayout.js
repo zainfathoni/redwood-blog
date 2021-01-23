@@ -2,6 +2,7 @@ import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 
 const BlogLayout = ({ children }) => {
+  // FIXME: Upgrade RedwoodJS version to fix an API call to http://localhost:8910/undefined/graphql
   const { logIn, logOut, isAuthenticated, currentUser } = useAuth()
   return (
     <div>
